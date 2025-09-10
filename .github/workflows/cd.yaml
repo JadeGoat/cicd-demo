@@ -31,12 +31,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # Step 3: Build and push the Docker image
+      # Step 3a: Convert to lowercase and add to environment variable
       - name: Convert repository name to lowercase
         run: |
           REPO="${GITHUB_REPOSITORY}"
           REPO_LC=$(echo "$REPO" | tr '[:upper:]' '[:lower:]')
           echo "REPO_LC=$REPO_LC" >> $GITHUB_ENV
+      # Step 3b: Build and push the Docker image
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
