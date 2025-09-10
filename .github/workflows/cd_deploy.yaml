@@ -1,7 +1,7 @@
 # .github/workflows/cd.yaml 
 # This workflow defines the Continuous Deployment (CD) process. 
  
-name: CD Workflow 
+name: CD Workflow - Deploy pages
  
 # 1. Trigger: This workflow runs only on pushes to the 'main' branch. 
 # This means it will execute after a PR is merged into 'main'. 
