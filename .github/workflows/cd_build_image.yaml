@@ -1,4 +1,4 @@
-# .github/workflows/cd.yaml
+# .github/workflows/cd_build_image.yaml
 
 name: CD Workflow - Build and Push Docker Image
 
