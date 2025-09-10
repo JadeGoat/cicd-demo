@@ -32,10 +32,15 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       # Step 3: Build and push the Docker image
+      - name: Convert repository name to lowercase
+        run: |
+          REPO="${GITHUB_REPOSITORY}"
+          REPO_LC=$(echo "$REPO" | tr '[:upper:]' '[:lower:]')
+          echo "REPO_LC=$REPO_LC" >> $GITHUB_ENV
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
           # Tag the image with the repository name and the commit SHA
-          tags: ghcr.io/${{ github.repository }}.toLowerCase():${{ github.sha }}
+          tags: ghcr.io/${{ env.REPO_LC }}:${{ github.sha }}
