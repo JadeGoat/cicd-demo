@@ -6,15 +6,15 @@ on:
   push:
     branches: [ main ]
 
-  # Chaining the different workflow
-  jobs:
-    call-ci:
-      uses: ./.github/workflows/ci.yaml
+# Chaining the different workflow
+jobs:
+  call-ci:
+    uses: ./.github/workflows/ci.yaml
 
-    call-cd-build-image:
-      needs: call-ci
-      uses: ./.github/workflows/cd_build_image.yaml
+  call-cd-build-image:
+    needs: call-ci
+    uses: ./.github/workflows/cd_build_image.yaml
 
-    call-cd-deploy:
-      needs: call-cd-build-image
-      uses: ./.github/workflows/cd_deploy.yaml
+  call-cd-deploy:
+    needs: call-cd-build-image
+    uses: ./.github/workflows/cd_deploy.yaml
