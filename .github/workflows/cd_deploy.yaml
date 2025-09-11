@@ -6,6 +6,7 @@ name: CD Workflow - Deploy pages
  
 # 1. Trigger: Workflow runs when it is called
 on: 
+  # Allow the workflow to be callable
   workflow_call:
  
 # 2. Permissions: Grant the necessary permissions for the workflow to deploy to GitHub Pages. 

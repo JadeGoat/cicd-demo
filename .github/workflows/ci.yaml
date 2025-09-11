@@ -5,20 +5,15 @@ name: CI Workflow # The name of your workflow, displayed in the GitHub Actions t
 
 # Controls when the workflow will run.
 on:
-  # Triggers workflow runs when it is called
+  # Allow the workflow to be callable
   workflow_call:
-
-  # Triggers the workflow on 'pull_request' events targeting the 'main' branch.
-  # This is crucial for pre-merge checks, ensuring code quality before integration.
-  pull_request:
-    branches: [ main ] # Indented 2 spaces from 'pull_request'
 
   # Allows you to run this workflow manually from the GitHub Actions tab.
   # Useful for testing or re-running failed workflows.
   workflow_dispatch: # Indented 2 spaces from 'on'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel.
-jobs: # Top-level element, starts at column 0
+jobs:
   # Defines a single job named "build-and-lint".
   build-and-lint: # Indented 2 spaces from 'jobs'
     # The type of runner (virtual environment) that the job will execute on.
