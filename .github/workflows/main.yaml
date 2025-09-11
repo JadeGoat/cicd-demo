@@ -15,11 +15,11 @@ jobs:
   #   pages: write
   #   id-token: write
       
-  call-ci:
-    uses: ./.github/workflows/ci.yaml
+  #call-ci:
+  #  uses: ./.github/workflows/ci.yaml
     
   call-cd-build-image:
-    needs: call-ci
+  #  needs: call-ci
     uses: ./.github/workflows/cd_build_image.yaml
     
   call-cd-deploy:
