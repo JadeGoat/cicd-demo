@@ -5,8 +5,9 @@
 name: CD Workflow - Build and Push Docker Image
 
 on:
-  # Allow the workflow to be callable
+  # Allows the workflow to be callable
   workflow_call:
+
   # Allows you to run this workflow manually from the GitHub Actions tab.
   # Useful for testing or re-running failed workflows.
   workflow_dispatch:
