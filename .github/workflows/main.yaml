@@ -9,6 +9,12 @@ on:
 
 # Chaining the different workflow
 jobs:
+  permissions:
+      contents: read
+      packages: write
+      pages: write 
+      id-token: write
+      
   call-ci:
     uses: ./.github/workflows/ci.yaml
     
