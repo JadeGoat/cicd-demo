@@ -1,0 +1,20 @@
+name: Master Pipeline
+
+on:
+  # Triggers the workflow on 'push' events to the 'main' branch.
+  # This means every time code is pushed directly to 'main' (or a PR is merged into 'main').
+  push:
+    branches: [ main ]
+
+  # Chaining the different workflow
+  jobs:
+    call-ci:
+      uses: ./.github/workflows/ci.yaml
+
+    call-cd-build-image:
+      needs: call-ci
+      uses: ./.github/workflows/cd_build_image.yaml
+
+    call-cd-deploy:
+      needs: call-cd-build-image
+      uses: ./.github/workflows/cd_deploy.yaml

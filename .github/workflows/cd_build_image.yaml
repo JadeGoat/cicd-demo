@@ -2,20 +2,13 @@
 
 name: CD Workflow - Build and Push Docker Image
 
-# Trigger this workflow on a push to the main branch
+# Trigger this workflow when it is called
 on:
-  push:
-    branches:
-      - main
-  workflow_run:
-    workflows: ["CI Workflow"]
-    types:
-      - completed
+  workflow_call:
 
 # Define the job to build and push the Docker image
 jobs:
   build-and-push:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     # Grant permissions to write to the GitHub Packages (Container Registry)
     permissions:
@@ -42,6 +35,7 @@ jobs:
           REPO="${GITHUB_REPOSITORY}"
           REPO_LC=$(echo "$REPO" | tr '[:upper:]' '[:lower:]')
           echo "REPO_LC=$REPO_LC" >> $GITHUB_ENV
+          
       # Step 3b: Build and push the Docker image
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
