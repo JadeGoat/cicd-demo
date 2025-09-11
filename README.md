@@ -1,12 +1,31 @@
-# React + Vite
+# cicd_github_template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# cicd_react_template
 
-Currently, two official plugins are available:
+# Setup
+#### Repo
+Clone repo using command
+```
+git clone <url>
+```
+#### React
+Install base package using command
+```
+npm install
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Usage
+#### To Run code
+Run command
+```
+npm run dev
+```
+#### Build docker image and run
+eg. Access http://localhost:5173/cicd_github_template
 
-## Expanding the ESLint configuration
+# Troubleshooting
+#### Renaming repo name
+Update config in vite.config.js to be same as repo name
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+#### Github Page
+Update the node-version in the workflows/cd_deploy.yaml to be the same as package.json
