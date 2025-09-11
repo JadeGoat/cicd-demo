@@ -1,10 +1,13 @@
 # .github/workflows/cd_deploy.yaml 
 # This workflow defines the Continuous Deployment (CD) process. 
- 
+# Focus on deploying web pages.
+
 name: CD Workflow - Deploy pages
  
 # 1. Trigger: Workflow runs when it is called
 on: 
+  push:
+    branches: [ main ]
   workflow_call:
  
 # 2. Permissions: Grant the necessary permissions for the workflow to deploy to GitHub Pages. 

@@ -1,9 +1,13 @@
 # .github/workflows/cd_build_image.yaml
+# This workflow defines the Continuous Deployment (CD) process.
+# Focus on building and pushing docker image. 
 
 name: CD Workflow - Build and Push Docker Image
 
 # Trigger this workflow when it is called
 on:
+  push:
+    branches: [ main ]
   workflow_call:
 
 # Define the job to build and push the Docker image
