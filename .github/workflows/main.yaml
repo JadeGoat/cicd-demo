@@ -4,12 +4,10 @@ on:
   # Triggers the workflow on 'push' events to the 'main' branch.
   # This means every time code is pushed directly to 'main' (or a PR is merged into 'main').
   push:
-    branches: [ main ]
+    branches:
+      - "main"
   workflow_dispatch:
 
-permissions:
-  contents: write
-  
 # Chaining the different workflow
 jobs:
   call-ci:
