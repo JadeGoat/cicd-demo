@@ -7,25 +7,20 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+# Check and add permissions that is required by nested workflow
 permissions:
   packages: write
   contents: read
   pages: write 
   id-token: write
-  
+
 # Chaining the different workflow
-jobs:
-  # permissions:
-  #   contents: read
-  #   packages: write
-  #   pages: write
-  #   id-token: write
-      
-  #call-ci:
-  #  uses: ./.github/workflows/ci.yaml
+jobs:   
+  call-ci:
+    uses: ./.github/workflows/ci.yaml
     
   call-cd-build-image:
-  #  needs: call-ci
+    needs: call-ci
     uses: ./.github/workflows/cd_build_image.yaml
     
   call-cd-deploy:
